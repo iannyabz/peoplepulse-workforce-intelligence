@@ -1,6 +1,6 @@
 # PeoplePulse — Workforce Planning & Retention Intelligence Platform
 
-> **An end-to-end People Analytics decision-support platform that transforms workforce data into actionable insights for retention, workforce planning, and responsible HR decision-making.**
+**An end-to-end People Analytics decision-support platform that transforms workforce data into actionable insights for retention, workforce planning, and responsible HR decision-making.**
 
 
 ## Overview
