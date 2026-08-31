@@ -1,0 +1,53 @@
+Feature Inspection and Importance
+
+-Odds Ratio
+                                     feature  odds ratio
+                        cat__overtime_True    7.446977
+    cat__business_travel_Travel Frequently    4.493912
+                    cat__tenure_groups_nan    4.019611
+       cat__job_role_Laboratory Technician    3.716041
+                cat__marital_status_Single    3.169219
+        cat__job_role_Sales Representative    2.093538
+             cat__job_role_Human Resources    1.943435
+        cat__business_travel_Travel Rarely    1.932047
+                     num__years_at_company    1.858416
+     cat__education_field_Technical Degree    1.840799
+                 num__num_companies_worked    1.662278
+                     cat__department_Sales    1.555101
+                          cat__gender_Male    1.515211
+          cat__job_role_Research Scientist    1.491492
+                   num__distance_from_home    1.386030
+               cat__marital_status_Married    1.350357
+             cat__job_role_Sales Executive    1.217120
+      cat__job_role_Manufacturing Director    1.209073
+                       num__monthly_income    1.083908
+                            num__education    1.052311
+        cat__long_current_role_tenure_True    1.043658
+                  num__percent_salary_hike    0.909790
+            cat__education_field_Marketing    0.908415
+                     cat__job_role_Manager    0.887945
+            num__relationship_satisfaction    0.854834
+                  cat__tenure_groups_30-34    0.823960
+             num__training_times_last_year    0.816351
+                   num__stock_option_level    0.805834
+                    num__work_life_balance    0.780491
+                                  num__age    0.740329
+                cat__education_field_Other    0.711303
+              cat__education_field_Medical    0.709923
+                      num__job_involvement    0.703588
+        cat__education_field_Life Sciences    0.680561
+                            num__job_level    0.675128
+             num__environment_satisfaction    0.674583
+                     num__job_satisfaction    0.655702
+              num__years_with_curr_manager    0.633819
+                  cat__tenure_groups_10-14    0.607204
+    cat__department_Research & Development    0.604033
+                  cat__tenure_groups_35-40    0.533020
+                num__years_in_current_role    0.531619
+                    cat__tenure_groups_5-9    0.511600
+                  cat__tenure_groups_15-19    0.481313
+           cat__job_role_Research Director    0.479179
+                  cat__tenure_groups_20-24    0.449712
+                  cat__tenure_groups_25-29    0.408845
+  cat__promotion_recency_Moderately Recent    0.362921
+  cat__promotion_recency_Recently Promoted    0.360394

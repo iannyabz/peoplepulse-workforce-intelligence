@@ -1,0 +1,169 @@
+- Outlier Findings:
+monthly income = 114 (~7.76%)
+num companies worked = 52 (~3.54%)
+performance rating = 226 (~15.37%)
+stock option level = 85 (~5.78%)
+total working years = 63 (~4.29%)
+training times last year = 238 (~16.19%)
+years at company = 104 (~7.07%)
+years in current role = 21 (~1.43%)
+years since last promotion = 107 (~7.28%)
+years with current manager = 14 (~0.95%)
+
+
+Numerical Distributions
+
+-Basic Overview
+
+1. Age:
+The average age at the company is approx. 37 years, with individuals deviating from this by 9 years. youngest employee is 18 years old, and the oldest is 60 years old.
+
+2. Job satisfaction:
+Employees show low/mid levels of satisfaction with their jobs, with an average score of approx. 2.7. The highest score is 4, and the lowest score is 1. 
+
+3. Monthly income:
+average income at the company is $6502
+
+4. Salary Hike:
+At the time of recording, the average salary hike an employee gets is about 15%, with the highest an employee has received being 25% and the lowest being 11%.
+
+5. Performance rating:
+Although employee show low-to-mid job satisfaction, their performance rating are more on the higher end, with an average score of 3 and a std of 0.4. The highest rating is 4, and the lowest rating is 3. 
+
+
+
+-Visualizations
+
+1. Distance from home:
+high proportion of employees stay in proximity to the workplace
+
+2. Education:
+Company employees have various educational backgrounds, with a high proportion having obtained a bachelor's degree and a low proportion having obtained a doctorate. 
+
+3. Environment satisfaction:
+A good proportion of employees show good to great satisfaction with the environment at the workplace. 
+
+4. Job satisfaction:
+A good proportion of employees think their jobs are meaningful and show good satisfaction. No skew can be seen 
+
+5. Monthly income:
+left/negative skew showing most employees are paid on the lower end of the scale. 
+
+6. salary hike pct:
+Left-negative skew showing most employees experienced a salary hike on the lower end. Probably to combat inflation rates.  
+
+7. total working years:
+Left-negative skew showing most employees have low-mid level experience in their respective fields. 
+
+8. years at the company:
+Left-negative skew, meaning the company has gone through a recent hiring campaign and has onboarded new talent. Could relate to the high retention rates and low attrition rate.
+
+
+-Correlation Matrix Heatmap
+
+1. Job level and monthly income show high levels of correlation with a score of 0.95. As expected, the higher the job level, the higher the pay. 
+
+2. Total working years shows significant correlation with both monthly income and job level, as you would expect: the more experience, the higher the pay and the higher the level.
+
+3. Total working years has a significant correlation with age, as expected
+
+4. Years at company has a significant correlation with years with current manager, years with manager and years since last promotion, as expected. 
+
+
+-Categorical Analysis
+
+1. job role:
+HR has the highest average income (~800) despite being one of the lowest roles by headcount. 
+Manager surprisingly has the lowest avg income(~680), which is counterintuitive for a role associated with seniority, worth investigating further.
+Although HR has the highest, its black error bars are one of the largest of all the plots; this could make the finding less reliable due to the small sample size.  
+
+2. Education category:
+Employees who hold a bachelor's degree and above experience a similar range of income, with employees who have a slightly lower educational background having a lower average salary.
+The headcount of employees who hold a doctorate is significantly lower than the rest, so the stat for doctorates might be less reliable than the others. 
+
+3. Gender:
+Although the modern world has progressed well from its patriarchal behaviours, men are leading in the aspect of average income, although the efforts to decrease the gender pay gap can clearly be seen with women trailing by a small gap. 
+Company in question employees more men (~850+) compared to women(~600)
+
+4. Department
+The HR department leads the way as the department that experiences the highest average income(~850), followed by Sales, then Research & Development(~700). 
+Again... this result could be unreliable and misleading due to the small sample size of the HR department and would require further investigation. 
+
+5. Attrition:
+Of the 1470 employee records we have been given access to, ~1200 employees(~80%)stayed at the company whilst ~200 employees(~15%) parted ways with the company. 
+
+
+-Salary Analysis
+
+1. Age groups:
+Clear case of increase in age leading to an increase in salary, as you would expect (the older you are, the more experience you possibly have, and the higher the educational background). 
+The small error bars in the age groups '18-34' and '35-59' show there is very little variability in monthly income, whereas the large error bar of '60+' shows there is a lot of variability in pay. 
+This could also be caused by a smaller sample size, as in the case of the HR department so that further investigation would be required. 
+
+'18-34' violin plots show that most employees are in similar pay ranges, with a few high earners (these are outliers)
+'35-59' violin plot shows 2 distinct bulges should there are 2 possible populations within this group. Further investigation of the job levels and roles from this group would be required. 
+
+
+2. Attrition:
+Employees who have parted ways with the company received a lower average monthly income than employees who stayed. The lower income could possibly be the reason for leaving; that is what this project will detect.
+Although most employees have a lower average pay, there are a few outliers that were on the higher end of the spectrum.
+
+3. Job role:
+Managers lead the way with the highest average monthly pay(~1690), with sales representatives having the lowest average monthly pay(~2500); this gives us further insight into the previous issues in the categorical analysis section for job roles. 
+
+4. Overtime:
+There is no significant benefit to the average monthly pay of employees who opt to take overtime compared to employees who opt to work their scheduled hours. 
+No category of pay favours taking up overtime over working scheduled hours.  
+
+5. Tenure groups:
+A clear trend is shown by the box plot. The longer the individual has worked at the company, the higher the monthly income. This is understandable because you gain more experience at the job, and promotions are given; therefore, higher pay. 
+A few outliers do exist, though; further investigation would be required to check their educational background, previous experience, job level, etc.  
+
+Error bars increase as the tenure of employees increases, interesting to investigate the attrition rate between tenures.
+
+
+
+
+- Attrition Analysis:
+
+1. Departments
+Employees from the Sales and HR departments are more likely to leave their positions than any other department, with ~20% of employees having left the company at the time of this recording. 
+Due to the small sample size coming from the HR department, this may be misleading; further investigation may be required. 
+
+2. Job Roles
+Employees who work as Sales Representatives are more likely to leave their role than any other job role. This can be expected since, from the salary analysis, they are on the lower end, so other more lucrative opportunities would have come up. Other reasons could be their contract type (part-time (student) or full-time)
+
+Managers, Manufacturing Directors, Healthcare Representatives, and Research Directors are less likely to leave their position, which can be expected, as seen by the salary analysis; they tend to be on the higher end of the spectrum
+
+3. Environment Satisfaction
+As expected, the lower the satisfaction rating, the more likely the employee is to leave the company.
+
+4. Job Satisfaction
+The lower the satisfaction rating, the more likely the employee is to leave the company.
+
+5. Monthly Income
+Employees at the higher end of monthly income are less likely to leave, with ~5% of them leaving the company. 
+
+Employees at the lower end, however, are more likely to leave the company. This could be due to more lucrative offers and other factors not available in the dataset.
+
+6. Promotion Recency
+Attrition Rates across all 3 categories are similar, showing promotions don't necessarily equal employee retention. Employees that have not been promoted in a long time are more likely to stay than recently promoted employees. 
+
+Further investigation into their job levels and income will need to be conducted to make this more reliable. 
+
+7. Work-Life Balance
+Employees who experience poor work-life balance are more likely to leave than an employee who has good work-life balance. 
+
+8. Years in Current Role
+Employees who are just starting in their new role are more likely to leave, with the rate of attrition decreasing the longer they stay in that role. Mainstay veterans are almost dead-on in staying in their position.  
+Attrition rates in the midsection show no real pattern, so further investigation will be required. 
+
+9. Overtime
+Employees who work overtime are more likely to leave the company than employees who do not. 
+
+
+
+
+
+
+

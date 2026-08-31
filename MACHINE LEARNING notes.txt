@@ -1,0 +1,191 @@
+MACHINE LEARNING: Attrition Prediction
+
+-Target Variable = attrition
+Data type = Boolean
+False = still at the company
+True = Left the company
+
+This is a binary classification problem
+
+-Business Objective
+Identify employees/groups with elevated attrition risk
+Prioritize potential retention interventions
+Do not treat predictions as guaranteed outcomes. Standard errors still apply
+
+This model will be used to predict the attrition probability of a given employee and classify them in 3 risk categories: 'Low', 'Medium', or 'High'. 
+
+
+- Data Leakage Prevention
+Divided datasets into various categories and inserted the relevant columns into their respective categories. I did this so that data I would have known after an employee leaves would be omitted
+I have also omitted employee identifiers and verified if engineered variables have data leakage. 
+
+Variables excluded are:
+daily_rate, employee_number, hourly_rate, peformance_rating, total_working_years, years_since_last_promotion. 
+
+
+- Baseline Model: Majority Class 
+
+              precision    recall  f1-score   support
+
+           0       0.87      1.00      0.93       255
+           1       0.00      0.00      0.00        39
+
+    accuracy                           0.87       294
+   macro avg       0.43      0.50      0.46       294
+weighted avg       0.75      0.87      0.81       294
+
+
+
+- Candidate Models
+1. Logistic Regression:
+
+              precision    recall  f1-score   support
+
+           0       0.91      0.96      0.94       255
+           1       0.62      0.41      0.49        39
+
+    accuracy                           0.89       294
+   macro avg       0.76      0.69      0.71       294
+weighted avg       0.87      0.89      0.88       294
+
+
+2. Decision Tree:
+
+              precision    recall  f1-score   support
+
+           0       0.88      0.86      0.87       255
+           1       0.22      0.26      0.24        39
+
+    accuracy                           0.78       294
+   macro avg       0.55      0.56      0.55       294
+weighted avg       0.79      0.78      0.79       294
+
+
+3. Random Forests:
+
+              precision    recall  f1-score   support
+
+           0       0.88      1.00      0.94       255
+           1       1.00      0.10      0.19        39
+
+    accuracy                           0.88       294
+   macro avg       0.94      0.55      0.56       294
+weighted avg       0.90      0.88      0.84       294
+
+
+4. XGBoost:
+
+              precision    recall  f1-score   support
+
+           0       0.90      0.96      0.93       255
+           1       0.50      0.28      0.36        39
+
+    accuracy                           0.87       294
+   macro avg       0.70      0.62      0.64       294
+weighted avg       0.84      0.87      0.85       294
+
+
+5. Gradient Boosting:
+
+              precision    recall  f1-score   support
+
+           0       0.91      0.98      0.94       255
+           1       0.72      0.33      0.46        39
+
+    accuracy                           0.89       294
+   macro avg       0.81      0.66      0.70       294
+weighted avg       0.88      0.89      0.88       294
+
+
+- Cross Validation
+
+1. Logistic Regression:
+Scores Per Fold: [0.81072154 0.8415481  0.84753209 0.85649065 0.81126712]
+Mean roc_auc: 0.83
+Std: 0.02
+
+2. Decision Tree:
+Scores Per Fold: [0.57494919 0.59375    0.60289431 0.65660264 0.69915583]
+Mean roc_auc: 0.63
+Std: 0.05
+
+3. Random Forest:
+Scores Per Fold: [0.77947154 0.82024898 0.85360496 0.83396503 0.78206564]
+Mean roc_auc: 0.81
+Std: 0.03
+
+4. XGBoost
+Scores Per Fold: [0.7834519  0.83231707 0.82599707 0.82186235 0.82858127]
+Mean roc_auc: 0.82
+Std: 0.02
+
+5. Gradient Boosting:
+Scores Per Fold: [0.79022696 0.80149051 0.82918425 0.80859678 0.81600482]
+Mean roc_auc: 0.81
+Std: 0.01
+
+
+- ROC and Precision-Recall Plots
+1.Logistic
+roc-auc = 0.79
+pr-auc = 0.52 
+
+2. Decision Tree
+roc-auc = 0.59
+pr-auc = 0.15
+
+3. Random Forest
+roc-auc = 0.75
+pr-auc = 0.38
+
+4. XGBoost
+roc-auc = 0.79
+pr-auc = 0.45
+
+5. Gradient Boosting
+roc-auc = 0.79
+pr-auc = 0.48
+
+
+Based on the plots and model results, the models we will consider seriously are:
+
+1. Logistic Regression = Tied for the highest accuracy score of all the models, tied for the highest ROC-AUC; therefore identifies the employees who left well and has the highest PR-AUC score.
+
+2. Gradient Boosting = Tied for the highest accuracy with logistic regression for accuracy and ROC-AUC scores. PR-AUC is slightly below
+
+3. XGBoost = Although its accuracy score is not among the top 3 highest scores, its ROC-AUC score is among the highest of all the models, along with its PR-AUC. 
+
+
+- Confusion Matrices (Starting with True label)
+1. Logistic
+Stayed x stayed = 245
+Left x Stayed = 23
+Stayed x Left = 10
+left x left = 16
+
+2. Gradient Boosting
+Stayed x stayed = 250
+Left x Stayed = 26
+Stayed x Left = 6
+left x left = 13
+
+3. XGBoost
+Stayed x stayed = 244
+Left x Stayed = 28
+Stayed x Left = 11
+left x left = 11
+
+XGBoost identified the most false positives 
+XGBoost identified the most false negatives 
+
+- Business Implication
+False Negatives (predicting an employee will stay when they actually leave) are the more operationally dangerous error for this business. A false negative gives HR false confidence that a team is stable, so no retention intervention or backfill hiring is triggered. When that employee then leaves unexpectedly, the business is caught understaffed — facing lost productivity, rushed and often lower-quality replacement hiring, and the loss of institutional knowledge and team continuity that a planned transition would have preserved.
+
+False Positives (predicting an employee will leave, when they actually stay) carry a different, generally less severe cost. Acting on a false positive means HR invests in retention efforts (or begins backfill hiring) for someone who was never actually at risk. In the worst case, this leads to overstaffing and unnecessary hiring spend — but this is typically a recoverable, budget-level cost, whereas the understaffing triggered by a false negative can disrupt operations and client/team continuity immediately and unpredictably.
+
+- Conclusion
+Because false negatives are costlier to this business than false positives, the model selection priority should favour minimizing false negatives (i.e., maximizing recall) even at some cost to precision. On that basis, Logistic Regression is the strongest candidate of the three
+
+
+
+
